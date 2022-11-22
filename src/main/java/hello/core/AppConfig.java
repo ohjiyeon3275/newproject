@@ -6,13 +6,17 @@ import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.*;
 import hello.core.order.OrderService;
 import hello.core.order.OrderServiceImpl;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
 public class AppConfig {
 
     /**
      * @생성자주입
      */
 
+    @Bean
     public MemberService memberService () {
         return new MemberServiceImpl(memberRepository());
     }
@@ -22,14 +26,17 @@ public class AppConfig {
     /**
      * 리팩토링으로 중복을 제거
      */
-    private MemberRepository memberRepository() {
+    @Bean
+    public MemberRepository memberRepository() {
         return new MemoryMemberRepository();
     }
 
+    @Bean
     public OrderService orderService() {
         return new OrderServiceImpl(discountPolicy(), memberRepository());
     }
 
+    @Bean
     public DiscountPolicy discountPolicy() {
         // return new FixDiccountPolicy();
         return new RateDiscountPolicy();
