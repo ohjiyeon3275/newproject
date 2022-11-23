@@ -63,4 +63,12 @@ OrderServiceImpldms DiscountPolicy인터페이스에 의존한다.
 
 - bean이름을 직접 부여해도 됨
 - bean이름은 항상 다른이름을 부여해야함
+
+
+---
+* BeanFactory와 ApplicationContext의 차이?
+- ApplicationContext는 BeanFactory를 상속
+
+- MessageSourcefmf 활용한 국제화기능
+- 환경변수
 - 
