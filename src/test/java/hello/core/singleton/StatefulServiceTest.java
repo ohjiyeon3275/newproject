@@ -15,17 +15,16 @@ class StatefulServiceTest {
         StatefulService statefulService1 = ac.getBean(StatefulService.class);
         StatefulService statefulService2 = ac.getBean(StatefulService.class);
 
-        statefulService1.order("userA", 10000);
-        statefulService2.order("userB", 20000);
+        int userAPrice = statefulService1.order("userA", 10000);
+        int userBPrice = statefulService2.order("userB", 20000);
 
         // a 주문금액 조회
-        int price = statefulService1.getPrice();
-        System.out.println("price " + price);
+        Assertions.assertEquals(userAPrice, 10000);
 
         /**
-         * A의 금액이 20000이 되면 안되는뎅!
+         * 이런 싱글톤 이슈가 멀티쓰레드로 나타나면
+         * 공유필드는 조심해야함.
          */
-        Assertions.assertEquals(statefulService1.getPrice(), 20000);
     }
 
     static class TextConfig{
