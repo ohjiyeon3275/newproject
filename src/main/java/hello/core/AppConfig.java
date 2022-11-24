@@ -13,11 +13,16 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
 
     /**
-     * @생성자주입
+     * @Bean memberService -> new MemoryMemberRepository()
+     * @Bean orderService -> new MemoryMemberRepository()
+     *
+     * 싱글톤이 깨지는게 아닌가용?
+     *
      */
 
     @Bean
     public MemberService memberService () {
+        System.out.println("AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
     }
 
@@ -28,17 +33,22 @@ public class AppConfig {
      */
     @Bean
     public MemberRepository memberRepository() {
+
+        System.out.println("AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
 
     @Bean
     public OrderService orderService() {
+
+        System.out.println("AppConfig.orderService");
         return new OrderServiceImpl(discountPolicy(), memberRepository());
     }
 
     @Bean
     public DiscountPolicy discountPolicy() {
         // return new FixDiccountPolicy();
+        System.out.println("AppConfig.discountPolicy");
         return new RateDiscountPolicy();
     }
 }
