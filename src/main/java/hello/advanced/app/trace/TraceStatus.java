@@ -3,18 +3,21 @@ package hello.advanced.app.trace;
 public class TraceStatus {
 
     private TraceId traceId;
-    private Long startItemMs;
+    private Long startTimeMs;
     private String message;
 
     public TraceStatus(TraceId traceId, Long startTimeMs, String message) {
+        this.traceId = traceId;
+        this.startTimeMs = startTimeMs;
+        this.message = message;
     }
 
     public TraceId getTraceId() {
         return traceId;
     }
 
-    public Long getStartItemMs() {
-        return startItemMs;
+    public Long getStartTimeMs() {
+        return startTimeMs;
     }
 
     public String getMessage() {

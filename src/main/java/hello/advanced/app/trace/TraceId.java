@@ -23,7 +23,7 @@ public class TraceId {
     }
 
     private TraceId createNextId() {
-        return new TraceId(id, level+1);
+        return new TraceId(id, level + 1);
     }
 
     private TraceId createPreviousId() {
