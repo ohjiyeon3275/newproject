@@ -4,11 +4,13 @@ import hello.advanced.app.trace.logtrace.FieldLogTrace;
 import hello.advanced.app.trace.logtrace.LogTrace;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class LogTraceConfig {
 
     @Bean
+    @Primary
     public LogTrace logTrace() {
         return new FieldLogTrace();
     }
