@@ -17,6 +17,7 @@ public class HelloTraceV1 {
         TraceId traceId = new TraceId();
         Long startTimeMs = System.currentTimeMillis();
         log.info("[{}] {}{}", traceId.getId(), addSpace(START_PREFIX, traceId.getLevel()), message);
+        System.out.println("add" + addSpace(START_PREFIX, traceId.getLevel()));
         return new TraceStatus(traceId, startTimeMs, message);
     }
 
@@ -40,10 +41,17 @@ public class HelloTraceV1 {
     }
 
     private static String addSpace(String prefix, int level) {
+        System.out.println(">>>???"+ level);
         StringBuilder sb = new StringBuilder();
+        // tringBuffer sb = new StringBuffer();
         for (int i = 0; i < level; i++) {
-            sb.append((i == level - 1) ? "|" + prefix : "|   ");
+            if(i == level -1 ) {
+                sb.append("|").append(prefix);
+            }else {
+                sb.append("| ");
+            }
         }
+        System.out.println("sb" + sb);
         return sb.toString();
     }
 

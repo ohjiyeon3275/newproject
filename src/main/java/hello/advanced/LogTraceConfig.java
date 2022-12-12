@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Primary;
 @Configuration
 public class LogTraceConfig {
 
-    @Bean
-    @Primary
+    // @Bean
+    //@Primary
     public LogTrace logTrace() {
         return new FieldLogTrace();
     }
