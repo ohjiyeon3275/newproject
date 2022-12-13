@@ -18,14 +18,13 @@ public class FieldLogTrace implements LogTrace {
     @Override
     public TraceStatus begin(String message) {
         syncTraceId();
-        TraceId traceId = new TraceId();
+        TraceId traceId = traceIdHolder;
         Long startTimeMs = System.currentTimeMillis();
         log.info("[{}] {}{}", traceId.getId(), addSpace(START_PREFIX, traceId.getLevel()), message);
         return new TraceStatus(traceId, startTimeMs, message);
     }
 
     private void syncTraceId() {
-
         if(traceIdHolder == null) {
             traceIdHolder = new TraceId();
         } else {
@@ -33,6 +32,13 @@ public class FieldLogTrace implements LogTrace {
         }
     }
 
+    private void releaseTraceId() {
+        if(traceIdHolder.isFirstLevel()) {
+            traceIdHolder = null;
+        } else {
+            traceIdHolder = traceIdHolder.createPreviousId();
+        }
+    }
     @Override
     public void end(TraceStatus status) {
         complete(status, null);
@@ -56,13 +62,7 @@ public class FieldLogTrace implements LogTrace {
         releaseTraceId();
     }
 
-    private void releaseTraceId() {
-        if(traceIdHolder.isFirstLevel()) {
-            traceIdHolder = null;
-        } else {
-            traceIdHolder = traceIdHolder.createPreviousId();
-        }
-    }
+
 
     private static String addSpace(String prefix, int level) {
         StringBuilder sb = new StringBuilder();
