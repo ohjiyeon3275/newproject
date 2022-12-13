@@ -13,6 +13,10 @@ public class FieldLogTrace implements LogTrace {
     private static final String COMPLETE_PREFIX = "<--";
     private static final String EX_PREFIX = "<X-";
 
+    /**
+     * TraceId를 담아두고 하나씩 증가할때마다 쓰려고했던 traceIdHolder는
+     * 빠른 요청이 동시에 일어날경우 쓰레드(같은 변수)에 동시에 접근하면서 심각한 오류를 발생시킬 수 있다.
+     */
     private TraceId traceIdHolder;
 
     @Override
