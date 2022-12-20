@@ -1,7 +1,7 @@
-package hello.advanced.app.inheritance;
+package hello.advanced.app.selfstudy.inheritance;
 
-import hello.advanced.app.inheritance.code.ChildClass;
-import hello.advanced.app.inheritance.code.ParentClass;
+import hello.advanced.app.selfstudy.inheritance.code.ChildClass;
+import hello.advanced.app.selfstudy.inheritance.code.ParentClass;
 import org.junit.jupiter.api.Test;
 
 public class InheritanceTest {

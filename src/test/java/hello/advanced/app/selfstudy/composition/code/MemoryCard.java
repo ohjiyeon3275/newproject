@@ -1,4 +1,4 @@
-package hello.advanced.app.composition.code;
+package hello.advanced.app.selfstudy.composition.code;
 
 public class MemoryCard {
 

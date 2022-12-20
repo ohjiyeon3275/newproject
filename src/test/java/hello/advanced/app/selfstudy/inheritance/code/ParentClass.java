@@ -1,4 +1,4 @@
-package hello.advanced.app.inheritance.code;
+package hello.advanced.app.selfstudy.inheritance.code;
 
 
 public class ParentClass {

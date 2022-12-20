@@ -42,4 +42,26 @@ public class TemplateMethodTest {
         template2.execute();
     }
 
+    @Test
+    void templateMethodV2() {
+        AbstractTemplate template1 = new AbstractTemplate() {
+            @Override
+            protected void call() {
+                System.out.println("로직1 ~~");
+            }
+        };
+        System.out.println("클래스 이름 : " + template1); // hello.advanced.app.trace.template.TemplateMethodTest$1@3d9c13b5
+        template1.execute();
+
+
+        AbstractTemplate template2 = new AbstractTemplate() {
+            @Override
+            protected void call() {
+                System.out.println("로직2 ~~");
+            }
+        };
+        System.out.println("클래스 이름 : " + template2); // hello.advanced.app.trace.template.TemplateMethodTest$2@4ae9cfc1
+        template2.execute();
+    }
+
 }
