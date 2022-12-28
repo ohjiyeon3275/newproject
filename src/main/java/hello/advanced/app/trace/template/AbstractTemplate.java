@@ -15,6 +15,8 @@ public abstract class AbstractTemplate<T> {
         TraceStatus status = null;
 
         try {
+
+            status = trace.begin(message);
             T result = call();
 
             trace.end(status);
