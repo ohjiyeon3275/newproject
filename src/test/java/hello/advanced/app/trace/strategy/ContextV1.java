@@ -16,6 +16,6 @@ public class ContextV1 {
 
         long endTime = System.currentTimeMillis();
 
-        System.out.println("result time = " + (startTime - endTime) );
+        System.out.println("result time = " + (endTime - startTime) );
     }
 }
