@@ -29,4 +29,11 @@ public class ContextV2Test {
             }
         });
     }
+
+    @Test
+    void strategyV3() {
+        ContextV2 context = new ContextV2();
+        context.execute(() -> System.out.println("business logic 1 "));
+        context.execute(() -> System.out.println("business logic 2 "));
+    }
 }
