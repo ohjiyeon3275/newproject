@@ -29,6 +29,6 @@ public class TemplateCallbackTest {
     void callbackV2() {
         TimeLogTemplate template = new TimeLogTemplate();
         template.execute(() -> System.out.println("business logic 1 "));
-        template.execute(() -> System.out.println("business logic 2 "));
+        template.execute(() -> System.out.println(""));
     }
 }
