@@ -1,6 +1,7 @@
-package hello.advanced.proxy.v1;
+package hello.advanced.proxy.v2;
 
-public class OrderRepositoryImpl implements OrderRepositoryV1{
+public class OrderRepositoryV2Impl implements OrderRepositoryV2 {
+
     @Override
     public void save(String itemId) {
         // ~~ 저장하는 복잡한 로직 ~~
