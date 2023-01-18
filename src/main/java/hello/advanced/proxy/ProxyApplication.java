@@ -1,6 +1,7 @@
 package hello.advanced.proxy;
 
 import hello.advanced.app.trace.TraceStatus;
+import hello.advanced.app.trace.logtrace.FieldLogTrace;
 import hello.advanced.app.trace.logtrace.LogTrace;
 import hello.advanced.proxy.config.AppV1Config;
 import hello.advanced.proxy.config.AppV2Config;
@@ -19,5 +20,9 @@ public class ProxyApplication {
         SpringApplication.run(ProxyApplication.class, args);
     }
 
+    @Bean
+    public LogTrace logTrace() {
+        return new FieldLogTrace();
+    }
 
 }
