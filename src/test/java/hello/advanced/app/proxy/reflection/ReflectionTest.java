@@ -61,4 +61,28 @@ public class ReflectionTest {
      *  클래스나 메서드 정보를 동적으로 변경가능해지기 때문
      *  또한 공통로직도 만들 수 있다.
      */
+
+
+    @Test
+    void reflection3() throws Exception {
+        Class reflection = Class.forName("hello.advanced.app.proxy.reflection.ReflectionTest$Hello");
+
+        Hello target = new Hello();
+
+        Method methodCallA = reflection.getMethod("callA");
+        dynamicCall(methodCallA, target);
+
+        Method methodCallB = reflection.getMethod("callB");
+        dynamicCall(methodCallB, target);
+    }
+
+    private void dynamicCall(Method method, Object target) throws Exception {
+        System.out.println("start >>> ");
+        Object result = method.invoke(target);
+        System.out.println("result : " + result);
+    }
+
+    /**
+     * 공톨로직을 처리할 수 있게 dynamicCall을 호출했다.
+     */
 }
