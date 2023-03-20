@@ -7,19 +7,24 @@ import hello.advanced.app.proxy.dynamicproxy.code.BInterface;
 import hello.advanced.app.proxy.dynamicproxy.handler.TimeInvocationHandler;
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
+
 
 public class JdkDynamicProxyTest {
 
     @Test
     void dynamicA() {
 
-        AInterface aInterface = new AImpl();
-        TimeInvocationHandler handler = new TimeInvocationHandler(aInterface);
-        AInterface proxy = (AInterface) Proxy.newProxyInstance(AInterface.class.getClassLoader(), new Class[]{AInterface.class}, (InvocationHandler) handler);
+        AInterface target = new AImpl();
+        TimeInvocationHandler handler = new TimeInvocationHandler(target);
+
+        AInterface proxy = (AInterface) Proxy.newProxyInstance(
+                AInterface.class.getClassLoader(),
+                new Class[]{ AInterface.class },
+                handler
+        );
         proxy.call();
-        System.out.println("target class : " + aInterface.getClass());
+        System.out.println("target class : " + target.getClass());
         System.out.println("proxy class : " + proxy.getClass());
     }
 
@@ -28,7 +33,11 @@ public class JdkDynamicProxyTest {
 
         BInterface bInterface = new BImpl();
         TimeInvocationHandler handler = new TimeInvocationHandler(bInterface);
-        BInterface proxy = (BInterface) Proxy.newProxyInstance(BInterface.class.getClassLoader(), new Class[]{BInterface.class}, (InvocationHandler) handler);
+        BInterface proxy = (BInterface) Proxy.newProxyInstance(
+                BInterface.class.getClassLoader(),
+                new Class[]{BInterface.class},
+                handler
+        );
         proxy.call();
         System.out.println("target class : " + bInterface.getClass());
         System.out.println("proxy class : " + proxy.getClass());
