@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import java.lang.reflect.Proxy;
 
 
-@Configuration
+//@Configuration
 public class DynamicProxyBasicConfig {
 
     @Bean
