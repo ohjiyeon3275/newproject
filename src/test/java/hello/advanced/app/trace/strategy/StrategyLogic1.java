@@ -2,9 +2,9 @@ package hello.advanced.app.trace.strategy;
 
 import hello.advanced.app.trace.strategy.code.Strategy;
 
-public class StrategeLogic2 implements Strategy {
+public class StrategyLogic1 implements Strategy {
     @Override
     public void call() {
-        System.out.println("logic2");
+        System.out.println("logic1");
     }
 }

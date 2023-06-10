@@ -19,12 +19,15 @@ public class ContextV1Test {
 
     @Test
     void strategeV1() {
-        Strategy strategyLogic1 = new StrategeLogic1();
+        Strategy strategyLogic1 = new StrategyLogic1();
         ContextV1 context1 = new ContextV1(strategyLogic1);
         context1.execute();
 
-        Strategy strategyLogic2 = new StrategeLogic2();
+        Strategy strategyLogic2 = new StrategyLogic2();
         ContextV1 context2 = new ContextV1(strategyLogic2);
         context2.execute();
     }
+
+
+
 }
