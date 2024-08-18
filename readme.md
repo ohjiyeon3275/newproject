@@ -1,3 +1,8 @@
+# 자바 백엔드 공부 기록
+- 브랜치: main, develop, spring-basic
+
+
+
 # 좋은 객체지향 설계
 
 ## SRP 단일 책임 원칙
